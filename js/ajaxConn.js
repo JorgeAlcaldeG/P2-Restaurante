@@ -31,3 +31,20 @@ function cambioTabla(){
     }
     mostrarTabla()
 }
+
+function mostrarRegistro(){
+    // console.log("hola");
+    var sala = document.getElementById("sala");
+    var emp = document.getElementById("emp");
+
+    var query = "sala="+ encodeURIComponent(sala.value)+"&emp="+encodeURIComponent(emp.value);
+    var ajax = new XMLHttpRequest();
+    ajax.open('POST', './proc/mostrarRegistro.php');
+    ajax.onload=function(){
+        if(ajax.readyState ==4 && ajax.status==200){
+            document.getElementById("tabla").innerHTML = ajax.responseText;
+        }
+    }
+    ajax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    ajax.send(query);
+}

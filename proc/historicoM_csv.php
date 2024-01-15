@@ -10,16 +10,16 @@
     if (isset($sala)){
         if ($sala === 0){
             $sql = "SELECT tbl_registros_mesas.id_registro_mesas as id, tbl_mesas.id_mesa as mesa, tbl_camareros.nombre as camarero, tbl_registros_mesas.fecha_hora_entrada as entrada, tbl_registros_mesas.fecha_hora_salida as salida, TIMEDIFF(fecha_hora_salida, fecha_hora_entrada) AS diferencia, tbl_salas.ubicacion_sala as sala FROM `tbl_registros_mesas` INNER JOIN tbl_mesas INNER JOIN tbl_camareros INNER JOIN tbl_salas ON tbl_mesas.id_mesa = tbl_registros_mesas.id_mesa and tbl_registros_mesas.id_user = tbl_camareros.id_user and tbl_salas.id_sala = tbl_mesas.id_sala;";
-            $stmt = mysqli_prepare($conn, $sql);
+            $stmt = $pdo -> prepare($sql);
         }else {
-            $sql = "SELECT tbl_registros_mesas.id_registro_mesas as id, tbl_mesas.id_mesa as mesa, tbl_camareros.nombre as camarero, tbl_registros_mesas.fecha_hora_entrada as entrada, tbl_registros_mesas.fecha_hora_salida as salida, TIMEDIFF(fecha_hora_salida, fecha_hora_entrada) AS diferencia, tbl_salas.ubicacion_sala as sala FROM `tbl_registros_mesas` INNER JOIN tbl_mesas INNER JOIN tbl_camareros INNER JOIN tbl_salas ON tbl_mesas.id_mesa = tbl_registros_mesas.id_mesa and tbl_registros_mesas.id_user = tbl_camareros.id_user and tbl_salas.id_sala = tbl_mesas.id_sala WHERE tbl_salas.id_sala = ?;";
-            $stmt = mysqli_prepare($conn, $sql);
-            mysqli_stmt_bind_param($stmt, "i", $sala);
+            $sql = "SELECT tbl_registros_mesas.id_registro_mesas as id, tbl_mesas.id_mesa as mesa, tbl_camareros.nombre as camarero, tbl_registros_mesas.fecha_hora_entrada as entrada, tbl_registros_mesas.fecha_hora_salida as salida, TIMEDIFF(fecha_hora_salida, fecha_hora_entrada) AS diferencia, tbl_salas.ubicacion_sala as sala FROM `tbl_registros_mesas` INNER JOIN tbl_mesas INNER JOIN tbl_camareros INNER JOIN tbl_salas ON tbl_mesas.id_mesa = tbl_registros_mesas.id_mesa and tbl_registros_mesas.id_user = tbl_camareros.id_user and tbl_salas.id_sala = tbl_mesas.id_sala WHERE tbl_salas.id_sala = :id;";
+            $stmt = $pdo -> prepare($sql);
+            $stmt -> bindParam(':id',$sala);
         }
-        mysqli_stmt_execute($stmt);
-        $resultado = mysqli_stmt_get_result($stmt);
+        $stmt -> execute();
+        $resultado = $stmt -> fetchAll();
     // Verificar si hay resultados
-    if (mysqli_num_rows($resultado) > 0) {
+    if ($stmt->rowCount() > 0) {
         // Definir el nombre del archivo CSV
         $nombreArchivo = 'export_registros_mesas.csv';
 
@@ -31,7 +31,7 @@
         fputcsv($archivo, $encabezados);
 
         // Recorrer los resultados y escribir cada fila en el archivo CSV
-        while ($fila = mysqli_fetch_assoc($resultado)) {
+        foreach ($resultado as $fila) {
             fputcsv($archivo, $fila);
         }
 
@@ -52,6 +52,6 @@
     }
 
     // Cerrar la conexión a la base de datos
-    mysqli_close($conn);
+    // mysqli_close($conn);
     }
     ?>

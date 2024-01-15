@@ -24,6 +24,7 @@ include("./proc/conexion.php");
     <script>
         window.onload = mostrarTabla();
     </script>
-    
+    <button><a href="./home.php">Ir al panel de mesas</a></button>
+    <a href="./proc/logout.php" class="logout">Cerrar sesión</a>
 </body>
 </html>
