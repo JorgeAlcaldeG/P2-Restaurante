@@ -1,0 +1,346 @@
+*{
+    font-family: 'Montserrat', sans-serif;
+}
+
+#login{
+    background-image: url(../img/loginFondo.jpg);
+    background-size: cover;
+    background-position: center;
+    /* background-size: 100% 100%; */
+}
+#form-container{
+    padding: 2%;
+    width: 60%;
+    margin: auto;
+    border-radius: 15px;
+    background-color: #487882;
+    text-align: center;
+    color: white;
+    margin-top: 10%;
+    -webkit-box-shadow: 0px 0px 14px 8px rgba(0,0,0,0.4);
+    -moz-box-shadow: 0px 0px 14px 8px rgba(0,0,0,0.4);
+    box-shadow: 0px 0px 14px 8px rgba(0,0,0,0.4);
+    opacity: 80%;
+    /* height: 60vh; */
+}
+.loginInput{
+    width: 70%;
+    font-size: 20px;
+    border-style:solid;
+    border-color: black;
+}
+.logininput:focus{
+    border-width: 1em;
+    border-color: white;
+}
+#loginBtn{
+    max-width: 20%;
+    font-size: 20px;
+}
+#reservasContainer{
+    margin: auto;
+    width: 62%;
+    height: 81vh;
+    margin-right: 5%;
+    background-image: url("../img/Restaurante.png");
+    background-size: cover;
+    background-position: center;
+    background-size: 100% 100%;
+}
+/* Home */
+#userTitulo{
+    color:white;
+    text-shadow: 2px 0 #000000, -2px 0 #000000, 0 2px #000000, 0 -2px #000000,
+             1px 1px #000000, -1px -1px #000000, 1px -1px #000000, -1px 1px #000000;
+}
+/* Boton logout y volver */
+.logout {
+    background: #FF4742;
+    border: 1px solid #FF4742;
+    border-radius: 6px;
+    box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 800;
+    line-height: 16px;
+    min-height: 40px;
+    outline: 0;
+    padding: 12px 14px;
+    text-align: center;
+    text-rendering: geometricprecision;
+    text-transform: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: middle;
+  }
+  .logout:hover,
+  .logout:active {
+    background-color: initial;
+    background-position: 0 0;
+    color: #FF4742;
+    background-color: white;
+    opacity: 80%;
+  }
+  
+  .logout:active {
+    opacity: .5;
+  }
+/* Botón registros */
+.regBtn {
+    background: #487882;
+    border: 1px solid #487882;
+    border-radius: 6px;
+    box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 800;
+    line-height: 16px;
+    min-height: 40px;
+    outline: 0;
+    padding: 12px 14px;
+    text-align: center;
+    text-rendering: geometricprecision;
+    text-transform: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: middle;
+    text-shadow:none;
+  }
+  .regBtn:hover,
+  .regBtn:active {
+    background-color: initial;
+    background-position: 0 0;
+    color: #487882;
+    background-color: white;
+    opacity: 80%;
+  }
+  
+  .regBtn:active {
+    opacity: .5;
+  }
+
+  .regBtn2 {
+    background: #09bd6c;
+    border: 1px solid #09bd6c;
+    border-radius: 6px;
+    box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 800;
+    line-height: 16px;
+    min-height: 40px;
+    outline: 0;
+    padding: 12px 14px;
+    text-align: center;
+    text-rendering: geometricprecision;
+    text-transform: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: middle;
+    text-shadow:none;
+  }
+  .regBtn2:hover,
+  .regBtn2:active {
+    background-color: initial;
+    background-position: 0 0;
+    color: #09bd6c;
+    background-color: white;
+    opacity: 80%;
+  }
+  
+  .regBtn2:active {
+    opacity: .5;
+  }
+
+/* Caja de texto */
+.InfoContainer{
+    background-color:beige;
+    float: left;
+    margin-top: 8%;
+    height: 50vh;
+    width: 30%;
+    margin-left: 2%;
+    border-radius: 20px;
+}
+#infoTitulo{
+    text-align: center;
+    margin-bottom: 0%;
+}
+#disp{
+    font-size: 25px;
+    font-weight: bolder;
+    text-align: center;
+    margin-top: 0%;
+    margin-bottom: 12%;
+}
+.text-Center{
+    text-align: center;
+    margin-top: 5%;
+}
+
+.infoMesa{
+    margin-bottom: 50%;
+    font-size: 25px;
+    font-weight: bolder;
+}
+
+
+.csvBtn{
+    float: right;
+}
+.imgSize{
+    width: 10%;
+}
+.mesaOcupada{
+    filter: hue-rotate(250deg);
+    /* filter: brightness(50%); */
+}
+.mesaIcon{
+    width: 100%;
+}
+.mesa-btn{
+    width: 100%;
+    border: none;
+    background:none;
+    cursor: pointer;
+}
+.silla-btn{
+    width: 100%;
+    border: none;
+    background:none;
+    cursor: pointer;
+    position: fixed;
+    left: 0%;
+    top: 69.2%;
+}
+/* .mesa-btn:focus{
+    background-color: red;
+} */
+.mesaContainer{
+    width: 9%;
+    /* position: fixed; */
+}
+/* Posicón de las mesas */
+.mesa1{
+    position: fixed;
+    left: 55%;
+    top: 70%;
+}
+.mesa2{
+    position: fixed;
+    left: 71%;
+    top: 40%;
+}
+.mesa3{
+    width: 3%;
+    position: fixed;
+    left: 66.5%;
+    top: 16%;
+}
+.mesa4{
+    position: fixed;
+    left: 54%;
+    top: 40%;
+    width: 5%;
+}
+.mesa5{
+    position: fixed;
+    left: 48%;
+    top: 17%;
+}
+.mesa6{
+    position: fixed;
+    left: 59.5%;
+    top: 17%;
+    width: 5%;
+}
+.mesa7{
+    position: fixed;
+    left: 87%;
+    top: 55%;
+    width: 5%;
+}
+.mesa8{
+    position: fixed;
+    left: 82.3%;
+    top: 16%;
+    width: 3%;
+}
+.mesa9{
+    position: fixed;
+    left: 40.5%;
+    top: 40%;
+}
+.mesa10{
+    position: fixed;
+    left: 40.5%;
+    top: 57%;
+}
+/* historico */
+/* -------------------------------------------------- */
+.tabla {
+    width: 100%;
+    height: 500px;
+    overflow-y: scroll;
+}
+
+.tabla table thead {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    left: 0;
+  }
+
+#registro {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+#Tabla{
+    width: 100%;
+    margin-top: 1%;
+    border-collapse: collapse;
+    text-align: center;
+
+}
+
+
+#Cabecera{
+padding-top: 12px;
+padding-bottom: 12px;
+text-align: left;
+background-color: #487882;;
+color: white;
+text-align: center;
+}
+tr:nth-child(even){background-color: #f2f2f2;}
+tr:hover {background-color: #ddd;}
+table, th, td {
+    border: 1px solid;
+    border-color: rgb(202, 202, 202);
+}
+#csvIcon{
+    margin-top: 1%;
+    width: 3%;
+    float: right;
+    margin-bottom: .5%;
+    transition: .5s;
+}
+#csvIcon:hover{
+    filter: brightness(80%);
+}
