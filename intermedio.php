@@ -16,6 +16,6 @@ if (!isset($_SESSION['id_user'])) {
 <body>
     <h1>Elige una opción</h1>
     <a href="./home.php">Ir a Home</a>
-    <a href="./listaCamareros.php">Lista de camareros</a>
+    <a href="./listaRecurso.php">Lista de empleados</a>
 </body>
 </html>

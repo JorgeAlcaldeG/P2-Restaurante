@@ -20,9 +20,9 @@ if (!filter_has_var(INPUT_POST, 'enviar')) {
 include_once("./conexion.php");
 
 $correo = isset($_POST['correo']) ? $_POST['correo'] : "";
-$correo = trim(mysqli_real_escape_string($conn, $correo));
+$correo = trim($correo);
 $contrasena = isset($_POST['contrasena']) ? $_POST['contrasena'] : "";
-$contrasena = trim(mysqli_real_escape_string($conn, $contrasena));
+$contrasena = trim($contrasena);
 // $contrasenaIntroducida =hash("sha256", $contrasena);
 $contrasenaIntroducida = password_hash($contrasena, PASSWORD_BCRYPT);
 // echo $contrasenaIntroducida;
@@ -48,13 +48,18 @@ if (empty($contrasena)) {
 
 try {
     // Consulta SQL para verificar el correo
-    $sql = "SELECT correo, contrasena, id_user FROM tbl_camareros WHERE correo = ?";
-    $stmt = mysqli_prepare($conn, $sql);
-    mysqli_stmt_bind_param($stmt, "s", $correo);
-    mysqli_stmt_execute($stmt);
-    mysqli_stmt_bind_result($stmt, $correoAlmacenado, $contrasenaAlmacenada, $id_user);
-    mysqli_stmt_fetch($stmt);
-    
+    $sql = "SELECT correo, contrasena, id_user FROM tbl_camareros WHERE correo = :correo LIMIT 1";
+    $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+
+    $stmt = $pdo->prepare($sql);
+    $stmt -> bindParam(':correo',$correo);
+    $stmt -> execute();
+    $res = $stmt -> fetchAll();
+    foreach ($res as $usuario) {
+        $contrasenaAlmacenada = $usuario["contrasena"];
+        $correoAlmacenado = $usuario["correo"];
+        $id_user = $usuario["id_user"];
+    }
     if ($correo == $correoAlmacenado && password_verify($contrasena, $contrasenaAlmacenada)) {  
         $_SESSION['correo'] = $correo;
         $_SESSION['id_user'] = $id_user;

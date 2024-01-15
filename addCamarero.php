@@ -5,7 +5,7 @@ if (!isset($_SESSION['id_user'])) {
     exit();
 }
 // include("./proc/conexion.php");
-var_dump($_GET);
+// var_dump($_GET);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -38,6 +38,7 @@ var_dump($_GET);
         if(isset($_GET['pwdvacio'])){echo"<p>El campo contraseña es obligatorio</p>";}    
         if(isset($_GET['userExist'])){echo"<p>El email ingresado ya existe</p>";}
     ?>
+    <button><a href="./listaRecurso.php">Volver</a></button>
     <script src="./js/valAddCamarero.js"></script>
 </body>
 </html>

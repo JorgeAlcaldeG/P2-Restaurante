@@ -1,15 +1,10 @@
 <?php
+$servidor = "mysql:dbname=db_restaurante;host:localhost";
+$user="root";
+$pass="";
 
-mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
-
-$dbserver= "localhost";
-$dbusername="root";
-$dbpassword="";
-$dbbasedatos="db_restaurante";
-
-try{
-    $conn = @mysqli_connect($dbserver, $dbusername, $dbpassword, $dbbasedatos);
-
+try {
+    $pdo = new PDO($servidor,$user,$pass,array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
 
 } catch (Exception $e){
     echo "Error en la conexión con la base de datos: " . $e->getMessage();
