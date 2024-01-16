@@ -11,9 +11,12 @@ include("./proc/conexion.php");
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>Administración de recursos</title>
 </head>
 <body>
+    <h1>Recursos</h1>
     <button id="btnOp" onclick="cambioTabla()">Mesas</button>
     <label for="nombre" id="lbl1">Nombre</label>
     <input type="text" name="nombre" id="input1" onkeyup="mostrarTabla()">

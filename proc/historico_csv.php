@@ -97,6 +97,8 @@ if ($stmt->rowCount() > 0) {
 
 } else {
     echo 'No hay datos para exportar.';
+    header('Location: ../registros.php?csvError=true'); // Redirige a la página de inicio de sesión
+    exit();
 }
 
 // // Cerrar la conexión a la base de datos

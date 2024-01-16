@@ -31,8 +31,8 @@
         echo"<h1>Empleados</h1>
         <button><a href='./addCamarero.php'>Crear usuario</></button>";
         if($stmt->rowCount() !=0){
-            echo"<table>
-            <tr>
+            echo"<table id='Tabla'>
+            <tr id='Cabecera'>
             <th>Correo</th>
             <th>Nombre</th>
             <th>Apellido</th>
@@ -45,7 +45,7 @@
                 <td>".$emp["nombre"]."</td>
                 <td>".$emp["apellido"]."</td>
                 <td>".$emp["Nomcargo"]."</td>
-                <td>Eliminar-Modificar</td>";
+                <td><button onclick='removeUsr(".$emp["id_user"].")'>Eliminar</button><button><a>Modificar</a></button></td>";
             }
             echo"</table>";
         }else{
@@ -57,18 +57,18 @@
     $stmt -> execute();
     $res = $stmt -> fetchAll();
     echo "<h1>Mesas</h1>";
-    echo"<table>
-            <tr>
-            <th>Sala</th>
+    echo"<table id='Tabla'>
+            <tr id='Cabecera'>
             <th>Número de mesa</th>
+            <th>Sala</th>
             <th>Estado</th>
             <th>Acciones</th>
             </tr>";
     foreach ($res as $mesa) {
         // var_dump($mesa);
         echo"<tr>
-            <td>".$mesa["nomUbi"]."</td>
-            <td>".$mesa["numero_mesa"]."</td>";
+            <td>".$mesa["numero_mesa"]."</td>
+            <td>".$mesa["nomUbi"]."</td>";
             if($mesa["mesa_ocupada"] == 0){
                 echo"<td>Libre</td>";
             }else{

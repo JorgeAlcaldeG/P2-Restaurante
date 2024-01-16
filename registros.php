@@ -15,6 +15,8 @@
             exit();
         }
         include_once("./proc/conexion.php");
+        if(isset($_GET["csvError"])){$error = $_GET["csvError"];}else{$error="";}
+        echo'<input type="hidden" name="id" value="'.$error.'">';
     ?>
     <h1>Historico de reservas</h1>
     <label for="sala">Salas</label>

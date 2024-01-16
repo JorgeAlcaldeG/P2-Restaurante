@@ -61,3 +61,35 @@ function mostrarRegistro(){
     ajax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     ajax.send(query);
 }
+function removeUsr(usr){
+    Swal.fire({
+        title: "Quieres eliminar el usuario?",
+        text: "Esta acción no se puede rehacer",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Si"
+      }).then((result) => {
+        if (result.isConfirmed) {
+        var ajax = new XMLHttpRequest();
+        var formdata = new FormData();
+        formdata.append('usr', usr);
+    
+        ajax.open('POST', './proc/removeUsr.php');
+        ajax.onload=function(){
+            if(ajax.readyState ==4 && ajax.status==200){
+                if(ajax.responseText == "ok"){
+                    Swal.fire({
+                        title: "Borrado!",
+                        text: "El usuario ha sido eliminado",
+                        icon: "success"
+                    });
+                    mostrarTabla();
+                }
+            }
+        }
+        ajax.send(formdata);
+        }
+      });
+}
