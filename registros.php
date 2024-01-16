@@ -16,6 +16,8 @@
         }
         include_once("./proc/conexion.php");
     ?>
+    <h1>Historico de reservas</h1>
+    <label for="sala">Salas</label>
     <select id="sala" onchange="mostrarRegistro()">
     <option value="0" selected>Todas</option>
     <?php
@@ -31,6 +33,7 @@
         }
     }?>;
     </select>
+    <label for="emp">Empleado</label>
     <select id="emp" onchange="mostrarRegistro()">
     <option value="0" selected>Todos</option>
     <?php 
@@ -43,10 +46,17 @@
     }
     ?>
     </select>
+    <label for="date1">Fecha mayor que</label>
+    <input type="date" name="date1" id="date1" onchange="mostrarRegistro()">
+    <label for="date2">Fecha menor que</label>
+    <input type="date" name="date2" id="date2" onchange="mostrarRegistro()">
+    <a id="csv"><img id="csvIcon" src="./img/csvIcon.png" alt="GenerarCSV"></a>
     <div class="tabla" id="tabla"></div>
     <script src="./js/ajaxConn.js"></script>
     <script>
         window.onload = mostrarRegistro();
     </script>
+    <button><a href="./home.php">Mapa</a></button>
+    <button><a href="./proc/logout.php">Cerrar sesión</a></button>
 </body>
 </html>

@@ -36,8 +36,21 @@ function mostrarRegistro(){
     // console.log("hola");
     var sala = document.getElementById("sala");
     var emp = document.getElementById("emp");
-
+    var date1 = document.getElementById("date1");
+    var date2 = document.getElementById("date2");
+    var csv = document.getElementById("csv");
     var query = "sala="+ encodeURIComponent(sala.value)+"&emp="+encodeURIComponent(emp.value);
+    csv.href = "./proc/historico_csv.php?sala="+sala.value+"&emp="+emp.value
+    if(date1.value !=""){
+        query = query+"&date1="+encodeURIComponent(date1.value)
+        csv.href += "&date1="+date1.value;
+    }
+    if(date2.value !=""){
+        query = query+"&date2="+encodeURIComponent(date2.value)
+        csv.href += "&date2="+date2.value;
+    }
+    // if(date1.value="")
+
     var ajax = new XMLHttpRequest();
     ajax.open('POST', './proc/mostrarRegistro.php');
     ajax.onload=function(){
