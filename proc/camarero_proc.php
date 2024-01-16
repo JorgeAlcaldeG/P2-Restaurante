@@ -1,3 +1,5 @@
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<title>Creado usuario</title>
 <?php
 session_start();
 if (!isset($_SESSION['id_user'])) {
@@ -7,11 +9,20 @@ if (!isset($_SESSION['id_user'])) {
 include("./conexion.php");
 
 // var_dump($_POST);
-$nom = trim(mysqli_real_escape_string($conn, $_POST["nom"]));
-$ape = trim(mysqli_real_escape_string($conn, $_POST["ape"]));
-$email = trim(mysqli_real_escape_string($conn, $_POST["email"]));
-$pwd=trim(mysqli_real_escape_string($conn, $_POST["pwd"]));
+$nom = $_POST["nom"];
+$ape = $_POST["ape"];
+$email = $_POST["email"];
+$pwd=$_POST["pwd"];
+$cargo=$_POST["cargo"];
 $error="";
+
+if($cargo >=6 || $cargo <=0){
+    if($error==""){
+        $error .="?cargoError=true";
+    } else {
+        $error .="&cargoError=true";        
+    }
+}
 if(empty($nom)){
     if($error==""){
         $error .="?uservacio=true";
@@ -48,27 +59,26 @@ if(empty($pwd)){
         $error .="&pwdvacio=true";        
     }
 }else{
-    $pwd = password_hash(mysqli_real_escape_string($conn, $pwd), PASSWORD_BCRYPT);
+    $pwd = password_hash($pwd, PASSWORD_BCRYPT);
 }
-echo $pwd;
 if ($error!=""){
     $datosRecibidos = array(
         'nom' => $nom,
         'ape' =>$ape,
         'email' => $email,
+        'cargo' => $cargo,
     );
     $datosDevueltos=http_build_query($datosRecibidos);
     header("Location: ../addCamarero.php". $error. "&". $datosDevueltos);
     exit();
 }else{
     try {
-        $sqlChk="SELECT nombre FROM tbl_camareros WHERE correo = ?";
-        $stmt1 = mysqli_prepare($conn, $sqlChk);
-        mysqli_stmt_bind_param($stmt1, "s", $email);
-        mysqli_stmt_execute($stmt1);
-        $res = mysqli_stmt_get_result($stmt1);
-        echo mysqli_num_rows($res);
-        if(mysqli_num_rows($res)>=1){
+        $sqlChk="SELECT nombre FROM tbl_camareros WHERE correo = :correo";
+        $stmt1 = $pdo -> prepare($sqlChk);
+        $stmt1 -> bindParam(":correo",$email);
+        $stmt1 -> execute();
+        $res = $stmt1->fetchAll();
+        if($stmt1->rowCount()>=1){
             echo"El usuario existe";
             $datosRecibidos = array(
                 'nom' => $nom,
@@ -79,22 +89,32 @@ if ($error!=""){
             header("Location: ../addCamarero.php?userExist=true&". $datosDevueltos);
             exit();
         }else{
-            $stmt2= mysqli_stmt_init($conn);
-            $sqlInsert=  "INSERT INTO tbl_camareros (`id_user`, `nombre`, `apellido`, `correo`, `contrasena`) VALUES (NULL, ?,?,?,?);";
-            mysqli_stmt_prepare($stmt2,$sqlInsert);
-            mysqli_stmt_bind_param($stmt2,"ssss",$nom,$ape,$email,$pwd);
-            mysqli_stmt_execute($stmt2);
-            mysqli_stmt_close($stmt1);
-            mysqli_stmt_close($stmt2);
-            echo "Usuario creadado correctamente";
-            header('Location: '.'../listaCamareros.php');
+            // $stmt2= mysqli_stmt_init($conn);
+            $sqlInsert=  "INSERT INTO tbl_camareros (`id_user`, `nombre`, `apellido`, `correo`, `contrasena`,`cargo`) VALUES (NULL, :nom,:ape,:correo,:pwd,:cargo);";
+            $stmt2=$pdo -> prepare($sqlInsert);
+            $stmt2 -> bindParam(":nom",$nom);
+            $stmt2 -> bindParam(":ape",$ape);
+            $stmt2 -> bindParam(":correo",$email);
+            $stmt2 -> bindParam(":cargo",$cargo);
+            $stmt2 -> bindParam(":pwd",$pwd);
+            echo $sqlInsert;
+            // mysqli_stmt_bind_param($stmt2,"ssss",$nom,$ape,$email,$pwd);
+            $stmt2 -> execute();
+            // $stmt1->close();
+            // $stmt2->close();
+            echo "Usuario creado correctamente";
+            echo'<script>Swal.fire({
+                icon: "success",
+                title: "Usuario creado correctamente",
+                showConfirmButton: false,
+                timer: 1500
+              }).then((result) => {
+                location.href ="../listaRecurso.php";
+              });</script>';
         }
     }catch (Exception $e) {
         echo "Error: ".$e->getMessage();
     }
 
 
-}
-
-
-echo $error;
+} ?>

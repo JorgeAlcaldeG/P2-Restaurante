@@ -45,7 +45,7 @@
                 <td>".$emp["nombre"]."</td>
                 <td>".$emp["apellido"]."</td>
                 <td>".$emp["Nomcargo"]."</td>
-                <td><button onclick='removeUsr(".$emp["id_user"].")'>Eliminar</button><button><a>Modificar</a></button></td>";
+                <td><button onclick='removeUsr(".$emp["id_user"].")'>Eliminar</button><button><a href='./editusr.php?usr=".$emp["id_user"]."'>Modificar</a></button></td>";
             }
             echo"</table>";
         }else{
