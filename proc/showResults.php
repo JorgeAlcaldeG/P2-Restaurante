@@ -1,5 +1,7 @@
 <?php
     // var_dump($_POST);
+    session_start();
+    $cargo = $_SESSION["cargo"];
     include("./conexion.php");
     $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
     if($_POST["tipo"] =="Mesas"){
@@ -37,15 +39,20 @@
             <th>Nombre</th>
             <th>Apellido</th>
             <th>Cargo</th>
-            <th>Acciones</th>
-            </tr>";
+            ";
+            if($cargo != 2){
+                echo"<th>Acciones</th>";
+            }
+            echo"</tr>";
             foreach ($res as $emp) {
                 echo"<tr>
                 <td>".$emp["correo"]."</td>
                 <td>".$emp["nombre"]."</td>
                 <td>".$emp["apellido"]."</td>
-                <td>".$emp["Nomcargo"]."</td>
-                <td><button onclick='removeUsr(".$emp["id_user"].")'>Eliminar</button><button><a href='./editusr.php?usr=".$emp["id_user"]."'>Modificar</a></button></td>";
+                <td>".$emp["Nomcargo"]."</td>";
+                if($cargo != 2){
+                    echo"<td><button onclick='removeUsr(".$emp["id_user"].")'>Eliminar</button><button><a href='./editusr.php?usr=".$emp["id_user"]."'>Modificar</a></button></td>";
+                }
             }
             echo"</table>";
         }else{

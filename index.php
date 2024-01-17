@@ -6,6 +6,11 @@
     <title>Home</title>
     <link rel="stylesheet" href="./css/style.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <?php
+        session_start();
+        session_unset();
+        session_destroy();
+    ?>
 </head>
 <body id="login">
     <div id="form-container">

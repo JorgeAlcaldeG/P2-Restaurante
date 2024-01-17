@@ -64,12 +64,13 @@ function mostrarRegistro(){
 function removeUsr(usr){
     Swal.fire({
         title: "Quieres eliminar el usuario?",
-        text: "Esta acción no se puede rehacer",
+        text: "Esta acción no se puede deshacer",
         icon: "warning",
         showCancelButton: true,
         confirmButtonColor: "#3085d6",
         cancelButtonColor: "#d33",
-        confirmButtonText: "Si"
+        confirmButtonText: "Si",
+        cancelButtonText: "Cancelar"
       }).then((result) => {
         if (result.isConfirmed) {
         var ajax = new XMLHttpRequest();

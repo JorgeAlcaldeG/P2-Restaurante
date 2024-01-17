@@ -2,7 +2,7 @@
     session_start();
     include_once("./proc/conexion.php");
     // Comprobar si el usuario ha iniciado sesión
-    if (!isset($_SESSION['id_user'])) {
+    if (!isset($_SESSION['id_user'])|| $_SESSION["cargo"]==5) {
         header('Location: ./index.php'); // Redirige a la página de inicio de sesión
         exit();
     }else{

@@ -10,7 +10,7 @@
 <body>
     <?php
         session_start();
-        if (!isset($_SESSION['id_user'])) {
+        if (!isset($_SESSION['id_user'])|| $_SESSION["cargo"]==5) {
             header('Location: ./index.php'); // Redirige a la página de inicio de sesión
             exit();
         }
@@ -58,7 +58,7 @@
     <script>
         window.onload = mostrarRegistro();
     </script>
-    <button><a href="./home.php">Mapa</a></button>
-    <button><a href="./proc/logout.php">Cerrar sesión</a></button>
+    <a href="./home.php" class="regBtn">Mapa</a>
+    <a href="./proc/logout.php" class="logout">Cerrar sesión</a>
 </body>
 </html>

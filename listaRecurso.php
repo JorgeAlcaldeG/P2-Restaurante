@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (!isset($_SESSION['id_user'])) {
+if (!isset($_SESSION['id_user'])|| $_SESSION["cargo"]==5) {
     header('Location: ./index.php'); // Redirige a la página de inicio de sesión
     exit();
 }
@@ -27,7 +27,8 @@ include("./proc/conexion.php");
     <script>
         window.onload = mostrarTabla();
     </script>
-    <button><a href="./home.php">Ir al panel de mesas</a></button>
+    <br>
+    <a href="./home.php" class="regBtn">Ir al panel de mesas</a>
     <a href="./proc/logout.php" class="logout">Cerrar sesión</a>
 </body>
 </html>

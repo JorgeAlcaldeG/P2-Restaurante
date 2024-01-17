@@ -293,7 +293,7 @@
 .tabla {
     width: 100%;
     height: auto;
-    max-height: 550px;
+    max-height: 500px;
     margin-top: 2%;
     margin-bottom: 2%;
     overflow-y: scroll;
