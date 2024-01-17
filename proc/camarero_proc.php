@@ -97,12 +97,10 @@ if ($error!=""){
             $stmt2 -> bindParam(":correo",$email);
             $stmt2 -> bindParam(":cargo",$cargo);
             $stmt2 -> bindParam(":pwd",$pwd);
-            echo $sqlInsert;
             // mysqli_stmt_bind_param($stmt2,"ssss",$nom,$ape,$email,$pwd);
             $stmt2 -> execute();
             // $stmt1->close();
             // $stmt2->close();
-            echo "Usuario creado correctamente";
             echo'<script>Swal.fire({
                 icon: "success",
                 title: "Usuario creado correctamente",

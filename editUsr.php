@@ -39,6 +39,11 @@ foreach ($resusr as $usr) {
 </head>
 <body>
     <h1>Editando a <?php echo $nom; ?></h1>
+    <?php 
+        if(isset($_GET["mailExiste"])){
+            echo "<p>El correo indicado ya está en uso</p>";
+        }
+    ?>
     <form action="./proc/editUsr_proc.php" method="post" onsubmit="return validarForm()">
         <input type="hidden" name="usr" value="<?php echo $idUsr; ?>">
         <label for="cargo">Cargo</label>
