@@ -44,6 +44,19 @@ Un login incorrecto devolverá a la ventana de inicio y mostrará una alerta de 
 
 ![imagen](https://github.com/JorgeAlcaldeG/P1-Restaurante/assets/91189374/be88e755-c759-40a4-8c75-64fac6467eec)
 
+## Permisos de los usuarios
+Todos los usuarios tienen asignado un cargo que les permite tener acceso a solo las partes que son imprescindibles para el trabajador, los cargos y sus permisos son los siguientes:
+
+### Camarero
+Puede acceder al panel de mesas pero no puede acceder a la lista de recursos
+### Admin
+Tiene acceso total a la pagina
+### Deshabilitado
+El usuario al iniciar sesión devuelve un mensaje de error
+### Gerente
+Solo puede acceder al panel de recursos y al histórico
+### Mantenimiento
+Puede ver el panel de gestión de recursos pero solo puede modificar la sección de mesas
 
 ## Pagina principal
 
@@ -102,7 +115,7 @@ La cual cuenta con las siguientes tablas:
 + tbl_camareros
   - Gestiona los usuarios con sus credenciales de inicio de sesión.
 
-De cara a una posible ampliación hemos preparado la base de datos para poder gestionar las sillas asignadas a cada mesa permitiendo un funcionamiento similar a la de las mesas, para eso tenemos las dos siguientes tablas:
+
 
 + tbl_sillas
   - Gestiona el estado de la silla y a que mesa pertenecen.
