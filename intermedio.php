@@ -1,9 +1,11 @@
 <?php
 session_start();
-if (!isset($_SESSION['id_user']) || $_SESSION["cargo"]==5) {
+if (!isset($_SESSION['id_user'])) {
     header('Location: ./index.php'); // Redirige a la página de inicio de sesión
     exit();
 }
+include("./funciones/actuCargo.php");
+actuCargo();
 ?>
 <!DOCTYPE html>
 <html lang="en">

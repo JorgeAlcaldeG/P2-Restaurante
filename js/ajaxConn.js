@@ -61,6 +61,16 @@ function mostrarRegistro(){
     ajax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     ajax.send(query);
 }
+function cargarMapa(){
+    var ajax = new XMLHttpRequest();
+    ajax.open('POST', './proc/mapa_proc.php');
+    ajax.onload=function(){
+        if(ajax.readyState ==4 && ajax.status==200){
+            document.getElementById("reservasContainer").innerHTML = ajax.responseText;
+        }
+    }
+    ajax.send();
+}
 function removeUsr(usr){
     Swal.fire({
         title: "Quieres eliminar el usuario?",

@@ -30,8 +30,10 @@
         }
         $stmt -> execute();
         $res = $stmt -> fetchAll();
-        echo"<h1>Empleados</h1>
-        <button><a href='./addCamarero.php'>Crear usuario</></button>";
+        echo"<h1>Empleados</h1>";
+        if($cargo != 2){
+            echo"<button><a href='./addCamarero.php'>Crear usuario</></button>";
+        }
         if($stmt->rowCount() !=0){
             echo"<table id='Tabla'>
             <tr id='Cabecera'>

@@ -1,10 +1,23 @@
 <?php
 session_start();
-if (!isset($_SESSION['id_user'])|| $_SESSION["cargo"]==5) {
+if (!isset($_SESSION['id_user'])) {
     header('Location: ./index.php'); // Redirige a la página de inicio de sesión
     exit();
 }
 include("./proc/conexion.php");
+    $id = $_SESSION['id_user'];
+    $sqlMesa = "SELECT cargo FROM tbl_camareros WHERE id_user = :id";
+    $stmt1 = $pdo -> prepare($sqlMesa);
+    $stmt1 -> bindParam(":id", $id);
+    $stmt1 ->execute();
+    $res = $stmt1 ->fetchAll();
+    foreach ($res as $nomRow) {
+        $_SESSION["cargo"] = $nomRow["cargo"];
+    }
+    if($_SESSION["cargo"] == 5 || $_SESSION["cargo"] == 1){
+        header('Location: ./index.php');
+        exit();
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">

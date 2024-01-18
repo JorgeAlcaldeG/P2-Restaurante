@@ -6,7 +6,7 @@
     background-image: url(../img/loginFondo.jpg);
     background-size: cover;
     background-position: center;
-    /* background-size: 100% 100%; */
+    /* background-size: 1000% 100%; */
 }
 #form-container{
     padding: 2%;
@@ -173,6 +173,10 @@
     width: 30%;
     margin-left: 2%;
     border-radius: 20px;
+    -webkit-box-shadow: inset 0px 0px 35px 6px rgba(122, 122, 109, 0.75);
+    -webkit-box-shadow: inset 0px 0px 15px 7px rgba(122, 122, 109, 0.75);
+    -moz-box-shadow: inset 0px 0px 15px 7px rgba(122, 122, 109, 0.75);
+    box-shadow: inset 0px 0px 15px 7px rgba(122, 122, 109, 0.75);
 }
 #infoTitulo{
     text-align: center;
@@ -229,64 +233,64 @@
     background-color: red;
 } */
 .mesaContainer{
-    width: 9%;
+    width: 7%;
     /* position: fixed; */
 }
 /* Posicón de las mesas */
 .mesa1{
     position: fixed;
-    left: 55%;
+    left: 59%;
     top: 70%;
 }
 .mesa2{
     position: fixed;
-    left: 71%;
-    top: 40%;
+    left: 72%;
+    top: 42%;
 }
 .mesa3{
-    width: 3%;
+    width: 7%;
     position: fixed;
-    left: 66.5%;
+    left: 67%;
     top: 16%;
 }
 .mesa4{
     position: fixed;
     left: 54%;
-    top: 40%;
-    width: 5%;
+    top: 42%;
+    width: 7%;
 }
 .mesa5{
     position: fixed;
-    left: 48%;
-    top: 17%;
+    left: 49%;
+    top: 16.5%;
 }
 .mesa6{
     position: fixed;
-    left: 59.5%;
-    top: 17%;
-    width: 5%;
+    left: 58.5%;
+    top: 16%;
+    width: 7%;
 }
 .mesa7{
     position: fixed;
-    left: 87%;
+    left: 86%;
     top: 55%;
-    width: 5%;
+    width: 7%;
 }
 .mesa8{
     position: fixed;
-    left: 82.3%;
+    left: 78%;
     top: 16%;
-    width: 3%;
+    width: 7%;
 }
 .mesa9{
     position: fixed;
-    left: 40.5%;
+    left: 41.5%;
     top: 40%;
 }
 .mesa10{
     position: fixed;
-    left: 40.5%;
-    top: 57%;
+    left: 41.5%;
+    top: 56%;
 }
 /* historico */
 /* -------------------------------------------------- */
