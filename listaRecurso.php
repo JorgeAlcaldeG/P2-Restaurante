@@ -30,7 +30,7 @@ include("./proc/conexion.php");
 </head>
 <body>
     <h1>Recursos</h1>
-    <button id="btnOp" onclick="cambioTabla()">Mesas</button>
+    <button id="btnOp" class="regBtn" onclick="cambioTabla()">Mesas</button>
     <label for="nombre" id="lbl1">Nombre</label>
     <input type="text" name="nombre" id="input1" onkeyup="mostrarTabla()">
     <label for="ape" id="lbl2">Apellido</label>
@@ -41,7 +41,11 @@ include("./proc/conexion.php");
         window.onload = mostrarTabla();
     </script>
     <br>
-    <a href="./home.php" class="regBtn">Ir al panel de mesas</a>
+    <?php
+        if ($_SESSION["cargo"] == 3) {
+            echo'<a href="./home.php" class="regBtn2">Mapa</a>';
+        }
+    ?>
     <a href="./proc/logout.php" class="logout">Cerrar sesión</a>
 </body>
 </html>

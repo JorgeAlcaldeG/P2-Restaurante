@@ -7,7 +7,7 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="../css/style.css">
 </head>
-<body id="login">
+<body id="bg">
     <?php
 session_start(); // Inicia la sesión
 

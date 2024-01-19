@@ -32,7 +32,7 @@
         $res = $stmt -> fetchAll();
         echo"<h1>Empleados</h1>";
         if($cargo != 2){
-            echo"<button><a href='./addCamarero.php'>Crear usuario</></button>";
+            echo"<a href='./addCamarero.php' id='btnUsr'><img src='./img/addUser.png' alt=''></a>";
         }
         if($stmt->rowCount() !=0){
             echo"<table id='Tabla'>
@@ -53,7 +53,7 @@
                 <td>".$emp["apellido"]."</td>
                 <td>".$emp["Nomcargo"]."</td>";
                 if($cargo != 2){
-                    echo"<td><button onclick='removeUsr(".$emp["id_user"].")'>Eliminar</button><button><a href='./editusr.php?usr=".$emp["id_user"]."'>Modificar</a></button></td>";
+                    echo"<td><button onclick='removeUsr(".$emp["id_user"].")' class='logout btnS'>Eliminar</button><button class='regBtn2 btnS '><a href='./editusr.php?usr=".$emp["id_user"]."'>Modificar</a></button></td>";
                 }
             }
             echo"</table>";
@@ -83,7 +83,7 @@
             }else{
                 echo"<td>Ocupada</td>";
             }
-            echo"<td>Modificar</td>";
+            echo"<td><button class='regBtn2 btnS'><a>Modificar</a></button></td>";
     }
     echo"</table>";
     }

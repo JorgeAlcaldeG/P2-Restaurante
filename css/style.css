@@ -1,12 +1,23 @@
 *{
     font-family: 'Montserrat', sans-serif;
 }
+a {
+    text-decoration: none;
+}
 
+a:hover {
+    text-decoration:none; 
+    cursor:pointer;  
+}
 #login{
     background-image: url(../img/loginFondo.jpg);
     background-size: cover;
     background-position: center;
     /* background-size: 1000% 100%; */
+}
+#bg{
+    background-image: url(../img/loginFondo.jpg);
+    background-size: cover;
 }
 #form-container{
     padding: 2%;
@@ -55,6 +66,7 @@
 }
 /* Boton logout y volver */
 .logout {
+    transition: all .2s ease-out;
     background: #FF4742;
     border: 1px solid #FF4742;
     border-radius: 6px;
@@ -79,6 +91,7 @@
   }
   .logout:hover,
   .logout:active {
+    transition: all .2s ease-out;
     background-color: initial;
     background-position: 0 0;
     color: #FF4742;
@@ -87,10 +100,18 @@
   }
   
   .logout:active {
+    transition: all .2s ease-out;
     opacity: .5;
+  }
+  .btnS{
+    font-size: 12px;
+  }
+  .btnS2{
+    font-size: 9px;
   }
 /* Botón registros */
 .regBtn {
+    transition: all .2s ease-out;
     background: #487882;
     border: 1px solid #487882;
     border-radius: 6px;
@@ -116,6 +137,7 @@
   }
   .regBtn:hover,
   .regBtn:active {
+    transition: all .2s ease-out;
     background-color: initial;
     background-position: 0 0;
     color: #487882;
@@ -124,6 +146,7 @@
   }
   
   .regBtn:active {
+    transition: all .2s ease-out;
     opacity: .5;
   }
 
@@ -150,6 +173,16 @@
     touch-action: manipulation;
     vertical-align: middle;
     text-shadow:none;
+    transition: all .2s ease-out;
+  }
+  .regBtn2 a {
+    transition: all .2s ease-out;
+    color: white;
+    font-size: 12px;
+  }
+  .regBtn2:hover a{
+    transition: all .2s ease-out;
+    color: #09bd6c;
   }
   .regBtn2:hover,
   .regBtn2:active {
@@ -158,10 +191,11 @@
     color: #09bd6c;
     background-color: white;
     opacity: 80%;
+    transition: all .2s ease-out;
   }
-  
   .regBtn2:active {
     opacity: .5;
+    transition: all .2s ease-out;
   }
 
 /* Caja de texto */
@@ -352,3 +386,29 @@ table, th, td {
 #csvIcon:hover{
     filter: brightness(80%);
 }
+#btnUsr{
+    width: 2%;
+    float: right;
+    border-style: solid;
+    border-width: 3px;
+    padding: .3%;
+    border-radius: 12px;
+    border-color: #487882;
+    transition: all .2s ease-out;
+}
+#btnUsr:hover{
+    transition: all .2s ease-out;
+    background-color: #487882;
+    border-color: black;
+}
+#btnUsr img{
+    width: 100%;
+}
+
+#btnUsr:hover img{
+    transition: all .2s ease-out;
+    filter: brightness(1000%);
+}
+
+
+
