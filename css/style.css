@@ -444,3 +444,6 @@ table, th, td {
     width: 100%;
     padding-left: 50%;
 }
+.container{
+    width: 100%;
+}

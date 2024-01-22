@@ -117,7 +117,7 @@
             echo'<a href="./listaRecurso.php" class="regBtn2">Administrar</a>';
         }
     ?>
-    <a href="./proc/logout.php" class="logout">Reservas</a>
+    <a href="./reservasForm.php" class="logout">Reservas</a>
     <a href="./proc/logout.php" class="logout" style="float:right;">Cerrar sesión</a>
     <script src="./js/getInfo.js"></script>
 

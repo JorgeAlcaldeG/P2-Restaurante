@@ -168,3 +168,67 @@ function modMesaProc(input){
         ajax.send(formdata);
     }
 }
+function mostrarReservas(){
+    var mesa = document.getElementById("mesas").value;
+    var date = document.getElementById("date").value;
+    var time1 = document.getElementById("time1").value;
+    var time2 = document.getElementById("time2").value;
+
+    var formdata = new FormData();
+    formdata.append('mesa', mesa);
+    formdata.append('date', date);
+    formdata.append('time1', time1);
+    formdata.append('time2', time2);
+    var ajax = new XMLHttpRequest();
+    ajax.open('POST', './proc/listaReservas.php');
+        ajax.onload=function(){
+            if(ajax.readyState ==4 && ajax.status==200){
+                if(ajax.responseText == "no"){
+                    document.getElementById("textoReserva").innerText = "No se han encontrado reservas";
+                    document.getElementById("reservaDatos").innerHTML ="";
+                    if(mesa!="" && date!="" && time1!="" && time2!=""){
+                        document.getElementById("btnReserva").disabled = false;
+                    }else{
+                        document.getElementById("btnReserva").disabled = true;
+                    }
+                }else{
+                    document.getElementById("textoReserva").innerText = "Se han encontrado las siguientes reservas";
+                    // console.log(ajax.responseText);
+                    var json = JSON.parse(ajax.responseText);
+                    var tabla ="";
+                    json.forEach(function(item){
+                        str="<tr><td>"+item.id_mesa+"</td>";
+                        str+="<td>"+item.reserva_fecha+"</td>";
+                        str+="<td>"+item.reserva_hora_ini+"</td>";
+                        str+="<td>"+item.reserva_hora_final+"</td>";
+                    tabla +=str; 
+                    });
+                    document.getElementById("reservaDatos").innerHTML = tabla;
+                    document.getElementById("btnReserva").disabled = true;
+                }
+            }
+        }
+    ajax.send(formdata);
+}
+
+function crearReserva(){
+    var mesa = document.getElementById("mesas").value;
+    var date = document.getElementById("date").value;
+    var time1 = document.getElementById("time1").value;
+    var time2 = document.getElementById("time2").value;
+    var numMesas = document.getElementById("numMesas").value;
+    var formdata = new FormData();
+    formdata.append('mesa', mesa);
+    formdata.append('date', date);
+    formdata.append('time1', time1);
+    formdata.append('time2', time2);
+    formdata.append('numMesas', numMesas);
+    var ajax = new XMLHttpRequest();
+    ajax.open('POST', './proc/CrearReserva.php');
+    ajax.onload=function(){
+        if(ajax.readyState ==4 && ajax.status==200){
+            console.log(ajax.responseText);
+        }
+    }
+    ajax.send(formdata);
+}
