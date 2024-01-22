@@ -41,14 +41,15 @@
     <title>Reservas</title>
 </head>
 <body>
-    <h1>Reservas</h1>
+    <h1 style="text-align: center;">Reservas</h1>
+    <br>
     <div class="container">
         <div class="row">
             <div class="col-6" id="reservasLista">
-                <p id="textoReserva">Hola</p>
-                <table >
+                <p id="textoReserva" style="text-align: center;">Hola</p>
+                <table id='Tabla'>
                     <thead>
-                        <tr>
+                        <tr id='Cabecera'>
                             <th>Mesa</th>
                             <th>Fecha inicio</th>
                             <th>Hora inicio</th>
@@ -61,20 +62,27 @@
                 </table>
             </div>
             <div class="col-6" id="formularioReservas">
-            <!-- One of two columns -->
-            <select name="mesas" id="mesas" onchange="mostrarReservas()">
-                <option value="0">Todos</option>
-                <?php
-                    foreach ($mesaForm as $mesa) {
-                        echo'<option value="'.$mesa["id_mesa"].'">Mesa '.$mesa["id_mesa"].'</option>';
-                    }
-                ?>
-            </select>
-            <input type="date" name="date" id="date" onchange="mostrarReservas()">
-            <input type="time" name="time1" id="time1" onchange="mostrarReservas()">
-            <input type="time" name="time2" id="time2" onchange="mostrarReservas()">
-            <input type="hidden" name="numMesas" id="numMesas" value="<?php echo $numMesas; ?>">
-            <button disabled id="btnReserva" onclick="crearReserva()">Crear reserva</button>
+                <h3 style="text-align: center;">Crear reserva</h3>
+                <p>Mesas</p>
+                <select name="mesas" id="mesas" onchange="mostrarReservas()">
+                    <option value="0">Todos</option>
+                    <?php
+                        foreach ($mesaForm as $mesa) {
+                            echo'<option value="'.$mesa["id_mesa"].'">Mesa '.$mesa["id_mesa"].'</option>';
+                        }
+                    ?>
+                </select>
+                <p>Fecha</p>
+                <input type="date" name="date" id="date" onchange="mostrarReservas()">
+                <br>
+                <p>Inicio de la reserva</p>
+                <input type="time" name="time1" id="time1" onchange="mostrarReservas()">
+                <p>Final de la reserva</p>
+                <input type="time" name="time2" id="time2" onchange="mostrarReservas()">
+                <input type="hidden" name="numMesas" id="numMesas" value="<?php echo $numMesas; ?>">
+                <br>
+                <button disabled id="btnReserva" onclick="crearReserva()">Crear reserva</button>
+                <a href="./home.php" class="logout">Mapa</a>
             </div>
         </div>
     </div>
