@@ -83,8 +83,24 @@
             }else{
                 echo"<td>Ocupada</td>";
             }
-            echo"<td><button class='regBtn2 btnS'><a>Modificar</a></button></td>";
+            $id_mesa = $mesa["numero_mesa"];
+            echo"<td><button class='regBtn2 btnS' onclick='modMesa($id_mesa)'><a>Modificar</a></button></td>";
     }
     echo"</table>";
+    echo"<div class='modMesa' id='modMesa'>
+        <input type='hidden' id='mesaId' value=''>
+        <a style='float:right; margin-right: 2%' onclick='cerrarMesa()'>X</a>
+        <h1 class='text-Center'>Modificar mesa<h2>
+        <p id='mod_nomMesa' class='mesaModForm'>Mesa numero </p>
+        <p id='mod_estado'class='mesaModForm'>Estado: </p>
+        </br>
+        <p class='mesaModForm'>Numero de sillas</p>
+        <div id='modContainer'>
+            <button onclick='modMesaProc(1)'>+</button>
+            <p class='mesaModForm' id='mod_num'></p>
+            <button onclick='modMesaProc(-1)'>-</button>
+        </div>
+        <img src='' id='mod_img'>
+    </div>";
     }
 ?>

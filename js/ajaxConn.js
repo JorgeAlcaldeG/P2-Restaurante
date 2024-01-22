@@ -104,3 +104,67 @@ function removeUsr(usr){
         }
       });
 }
+
+function modMesa(id){
+    document.getElementById("mesaId").value = id;
+    formContainer = document.getElementById("modMesa");
+    formContainer.style.display = "initial";
+
+    var ajax = new XMLHttpRequest();
+        var formdata = new FormData();
+        formdata.append('id', id);
+    
+        ajax.open('POST', './proc/getMesaInfo.php');
+        ajax.onload=function(){
+            if(ajax.readyState ==4 && ajax.status==200){
+                var json=JSON.parse(ajax.responseText);
+                document.getElementById("mod_nomMesa").innerText ="Mesa numero ";
+                document.getElementById("mod_estado").innerText ="Estado: ";
+                document.getElementById("mesaId").value = json[0].mesa;
+                document.getElementById("mod_nomMesa").innerText +=" "+json[0].mesa;
+                if(json[0].disponibilidad == 0){
+                    document.getElementById("mod_estado").innerText +=" Libre";
+                }else{
+                    document.getElementById("mod_estado").innerText +=" Ocupada";
+                }
+                document.getElementById("mod_num").innerText =json[0].numero_sillas;
+                document.getElementById("mod_img").src="./img/mesaIcon/mesa"+json[0].numero_sillas+".png"
+            }
+        }
+        ajax.send(formdata);
+}
+function cerrarMesa(){
+    formContainer = document.getElementById("modMesa");
+    formContainer.style.display = "none";
+}
+
+function modMesaProc(input){
+    var id = document.getElementById("mesaId").value;
+    var numMesas = document.getElementById("mod_num").innerText;
+    var ajax = new XMLHttpRequest();
+    var formdata=""
+    if(input =="1"){
+        if(numMesas <=5){
+            var formdata = new FormData();
+            formdata.append('op', input);
+        }
+    }
+    if(input =="-1"){
+        if(numMesas >0){
+            var formdata = new FormData();
+            formdata.append('op', input);
+        }
+    }
+    if(formdata !=""){
+        formdata.append('id', id);
+        ajax.open('POST', './proc/updateMesa.php');
+        ajax.onload=function(){
+            if(ajax.readyState ==4 && ajax.status==200){
+                document.getElementById("mod_num").innerText = ajax.responseText;
+                document.getElementById("mod_img").src="./img/mesaIcon/mesa"+ajax.responseText+".png"
+                // console.log(ajax.responseText);
+            }
+        }
+        ajax.send(formdata);
+    }
+}

@@ -9,6 +9,7 @@ a:hover {
     text-decoration:none; 
     cursor:pointer;  
 }
+
 #login{
     background-image: url(../img/loginFondo.jpg);
     background-size: cover;
@@ -410,5 +411,36 @@ table, th, td {
     filter: brightness(1000%);
 }
 
+.modMesa{
+    position:fixed;
+    top: 20%;
+    left: 40%;
+    width: 30%;
+    height: 60vh;
+    background-color: white;
+    border-style: solid;
+    border-radius: 10px;
+    border-color: #000000;
+    display:none;
+}
 
-
+.mesaModForm{
+    font-size: 18px;
+    text-align: center;
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+#mod_img{
+    margin-top: 2%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+}
+#mod_num{
+    width: 7%;
+}
+#modContainer{
+    width: 100%;
+    padding-left: 50%;
+}

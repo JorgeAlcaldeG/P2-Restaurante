@@ -92,7 +92,7 @@
             <!-- Repite esto para cada mesa -->
         </form>
         <?php 
-            $sqlMesa = "SELECT tbl_mesas.id_mesa AS mesa, tbl_salas.ubicacion_sala AS sala, tbl_mesas.mesa_ocupada AS disponibilidad, COUNT(tbl_sillas.id_silla) AS numero_sillas FROM tbl_mesas INNER JOIN tbl_salas ON tbl_mesas.id_sala = tbl_salas.id_sala INNER JOIN tbl_sillas ON tbl_mesas.id_mesa = tbl_sillas.id_mesa GROUP BY tbl_mesas.id_mesa, tbl_salas.ubicacion_sala, tbl_mesas.mesa_ocupada; ";
+            $sqlMesa = "SELECT tbl_mesas.id_mesa AS mesa, tbl_salas.ubicacion_sala AS sala, tbl_mesas.mesa_ocupada AS disponibilidad, COUNT(tbl_sillas.id_silla) AS numero_sillas FROM tbl_mesas INNER JOIN tbl_salas ON tbl_mesas.id_sala = tbl_salas.id_sala INNER JOIN tbl_sillas ON tbl_mesas.id_mesa = tbl_sillas.id_mesa WHERE tbl_sillas.deshabilitado = 0 GROUP BY tbl_mesas.id_mesa, tbl_salas.ubicacion_sala, tbl_mesas.mesa_ocupada; ";
             $stmt1 = $pdo->prepare($sqlMesa);
             $stmt1 -> execute();
             $res = $stmt1 ->fetchAll();
@@ -120,5 +120,6 @@
     <a href="./proc/logout.php" class="logout">Reservas</a>
     <a href="./proc/logout.php" class="logout" style="float:right;">Cerrar sesión</a>
     <script src="./js/getInfo.js"></script>
+
 </body>
 </html>
