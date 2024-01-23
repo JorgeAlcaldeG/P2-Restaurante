@@ -30,9 +30,9 @@
         }
         $stmt -> execute();
         $res = $stmt -> fetchAll();
-        echo"<h1>Empleados</h1>";
+        echo"<h1 style='float:left'>Empleados</h1>";
         if($cargo != 2){
-            echo"<a href='./addCamarero.php' id='btnUsr'><img src='./img/addUser.png' alt=''></a>";
+            echo"<a style='margin-top:3%' href='./addCamarero.php' id='btnUsr'><img src='./img/addUser.png' alt=''></a>";
         }
         if($stmt->rowCount() !=0){
             echo"<table id='Tabla'>
@@ -89,7 +89,7 @@
     echo"</table>";
     echo"<div class='modMesa' id='modMesa'>
         <input type='hidden' id='mesaId' value=''>
-        <a style='float:right; margin-right: 2%' onclick='cerrarMesa()'>X</a>
+        <a style='float:right; margin-right: 2%; color:black' onclick='cerrarMesa()'><strong>X</strong></a>
         <h1 class='text-Center'>Modificar mesa<h2>
         <p id='mod_nomMesa' class='mesaModForm'>Mesa numero </p>
         <p id='mod_estado'class='mesaModForm'>Estado: </p>

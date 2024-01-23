@@ -3,6 +3,7 @@
 }
 a {
     text-decoration: none;
+    color: white;
 }
 
 a:hover {
@@ -446,4 +447,26 @@ table, th, td {
 }
 .container{
     width: 100%;
+}
+.centrarForm{
+    display: block;
+    margin : 0 auto;
+}
+.centrarTexto{
+    text-align: center;
+}
+.row{
+    max-width: 100%;
+}
+#userForm{
+    padding-left: 5%;
+}
+.formContainer{
+    padding: 2%;
+    padding-top: 0%;
+    margin-left: 25%;
+    margin-top: 5%;
+    width: 50%;
+    border-radius: 20px;
+    background-color: #ddd;
 }
