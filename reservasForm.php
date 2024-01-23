@@ -43,7 +43,6 @@
 <body>
     <h1 style="text-align: center;">Reservas</h1>
     <br>
-    <a href="./home.php" class="logout">Mapa</a>
     <div class="container">
         <div class="row">
             <div class="col-6" id="reservasLista">
@@ -63,6 +62,7 @@
                 </table>
             </div>
             <div class="col-6" id="formularioReservas">
+                <hr>
                 <h3 style="text-align: center;">Crear reserva</h3>
                 <br>
                 <div class="row">
@@ -97,6 +97,7 @@
                 <br>
                 <button disabled id="btnReserva" class="centrarForm" onclick="crearReserva()">Crear reserva</button>
                 <hr>
+                <a href="./home.php" class="logout">Mapa</a>
         </div>
     </div>
     <script src="./js/ajaxConn.js"></script>

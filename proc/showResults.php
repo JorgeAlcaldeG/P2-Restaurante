@@ -53,7 +53,7 @@
                 <td>".$emp["apellido"]."</td>
                 <td>".$emp["Nomcargo"]."</td>";
                 if($cargo != 2){
-                    echo"<td><button onclick='removeUsr(".$emp["id_user"].")' class='logout btnS'>Eliminar</button><button class='regBtn2 btnS '><a href='./editusr.php?usr=".$emp["id_user"]."'>Modificar</a></button></td>";
+                    echo"<td><button onclick='removeUsr(".$emp["id_user"].")' class='logout btnS' style='margin-right:2%'>Eliminar</button><button class='regBtn2 btnS '><a href='./editusr.php?usr=".$emp["id_user"]."'>Modificar</a></button></td>";
                 }
             }
             echo"</table>";
