@@ -1,6 +1,4 @@
-
 <?php
-// var_dump($_POST);
 $error="";
 if($_POST["mesa"]<=$_POST["numMesas"] && $_POST["mesa"]>0){
     $mesa = $_POST["mesa"];
@@ -33,7 +31,7 @@ if($error ==""){
     $stmt -> execute();
     if($stmt ->rowCount()!=0){
         $error = "La mesa ya está ocupada en esa franja horaria";
-        echo $error;
+        // echo $error;
     }else{
         try {
             $sqlRes = "INSERT INTO tbl_reservas (id_reserva, id_mesa, reserva_fecha, reserva_hora_ini, reserva_hora_final) VALUES(NULL, :mesa, :date,:time1, :time2)";
@@ -51,5 +49,5 @@ if($error ==""){
         
     }
 }else{
-    echo $error;
+    // echo $error;
 }
